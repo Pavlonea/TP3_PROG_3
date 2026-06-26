@@ -24,10 +24,10 @@ function mostrar(){
 
 mostrar();
 
-document.getElementById("ordenar").addEventListener("click",()=>{
+document.getElementById("ordenar").addEventListener("click", function () {
 
-juegos.sort();
+    juegos.sort();
 
-mostrar();
+    mostrar();
 
 });
