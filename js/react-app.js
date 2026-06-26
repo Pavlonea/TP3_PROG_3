@@ -8,6 +8,8 @@ function App() {
         peso: ""
     });
 
+    const [personas, setPersonas] = React.useState([]);
+
     function cambiar(e) {
         setPersona({
             ...persona,
@@ -15,9 +17,41 @@ function App() {
         });
     }
 
+    function agregar(e) {
+
+        e.preventDefault();
+
+        if (
+            persona.nombre === "" ||
+            persona.apellido === "" ||
+            persona.edad === "" ||
+            persona.altura === "" ||
+            persona.peso === ""
+        ) {
+            alert("Complete todos los campos");
+            return;
+        }
+
+        setPersonas([...personas, persona]);
+
+        setPersona({
+            nombre: "",
+            apellido: "",
+            edad: "",
+            altura: "",
+            peso: ""
+        });
+    }
+
+    function eliminar(indice) {
+        setPersonas(
+            personas.filter((_, i) => i !== indice)
+        );
+    }
+
     return (
         <>
-            <form>
+            <form onSubmit={agregar}>
 
                 <input
                     name="nombre"
@@ -59,11 +93,55 @@ function App() {
                     onChange={cambiar}
                 />
 
-                <button>
+                <button type="submit">
                     Agregar
                 </button>
 
             </form>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Altura</th>
+                        <th>Peso</th>
+                        <th>IMC</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {personas.map((p, i) => {
+
+                        const imc = (p.peso / (p.altura * p.altura)).toFixed(2);
+
+                        return (
+
+                            <tr key={i}>
+                                <td>{p.nombre}</td>
+                                <td>{p.apellido}</td>
+                                <td>{p.edad}</td>
+                                <td>{p.altura}</td>
+                                <td>{p.peso}</td>
+                                <td>{imc}</td>
+                                <td>
+                                    <button onClick={() => eliminar(i)}>
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+
+                        );
+
+                    })}
+
+                </tbody>
+
+            </table>
         </>
     );
 }
