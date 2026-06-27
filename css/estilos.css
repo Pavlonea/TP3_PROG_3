@@ -1,71 +1,82 @@
-body{
+body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background:#f4f4f4;
+    background: #f4f4f4;
 }
 
-h1{
-    text-align:center;
+header {
+    text-align: center;
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
 }
 
-nav{
-    margin:20px 0;
+nav {
+    text-align: center;
+    margin: 25px 0;
 }
 
-nav a{
-    margin-right:15px;
-    text-decoration:none;
-    color:blue;
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
 }
 
-button{
-    padding:8px 15px;
-    cursor:pointer;
+nav a:hover {
+    background-color: #357abd;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
+p {
+    text-align: center;
+    font-size: 18px;
 }
 
-table,th,td{
-    border:1px solid gray;
+button {
+    padding: 8px 15px;
+    cursor: pointer;
 }
 
-th,td{
-    padding:8px;
-    text-align:center;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
 }
 
-input{
-    padding:6px;
+table,
+th,
+td {
+    border: 1px solid gray;
 }
 
-.cards{
-
-display:flex;
-
-flex-wrap:wrap;
-
-gap:20px;
-
-margin-top:20px;
-
+th,
+td {
+    padding: 8px;
+    text-align: center;
 }
 
-.card{
+input {
+    padding: 6px;
+    margin: 5px;
+}
 
-background:white;
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
 
-border:1px solid gray;
-
-padding:20px;
-
-width:180px;
-
-border-radius:8px;
-
-text-align:center;
-
+.card {
+    background: white;
+    border: 1px solid gray;
+    padding: 20px;
+    width: 180px;
+    border-radius: 8px;
+    text-align: center;
 }
